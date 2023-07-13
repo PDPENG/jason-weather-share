@@ -1,0 +1,96 @@
+<view class="weather-page container {{isIPhoneX ? 'iphonex-padding' : ''}}">
+  <loading-global wx:if="{{globalLoading}}" />
+  <view wx:else>
+    <add-tips-main />
+    <!-- 搜索 -->
+    <view class='search-container'>
+      <view class='search-left' bindtap='toCitychoose'>
+        <image src='/image/icon/icon-search.png'></image>
+        <input placeholder-class='placeholderClass' confirm-type='search' placeholder='输入城市名，快速查询天气信息' maxlength='20' bindconfirm='commitSearch' value='{{searchText}}' disabled='{{!enableSearch}}'></input>
+      </view>
+    </view>
+    <!-- 天气详情 -->
+    <view class="{{'content weather-city-container weather-city-'+weatherData.text_en}}">
+      <view wx:if="{{weatherData.text_en&&weatherData.text_en!=='sun'}}">
+        <image class="weather-city-image" src="{{'../../image/weather-city/'+weatherData.text_en+'--day.png'}}" />
+      </view>
+      <view class='info today'>
+        <view class="today-header">
+          <view class='location' bindtap='toCitychoose'>{{weatherData.locationName}}</view>
+          <view class='time' bindtap="refresh">
+            {{weatherData.obsTimeFormat}} 更新
+            <image class="icon-refresh" src="/image/icon/icon-refresh.png" />
+          </view>
+        </view>
+        <view class="today-tip" wx:if="{{weatherData.warning&&weatherData.warning.length}}" bindtap="openWarningToast">
+          <view class="subscribe-button">{{weatherData.warning.length}}条预警信息</view>
+        </view>
+        <view class='temp num' decode='true'>
+          <image class="weather-today-image" src="{{'../../image/weather-icon/'+weatherData.icon+'.png'}}" />
+          {{weatherData.temp || '-'}}
+          <text class="unit">℃</text>
+        </view>
+        <view class="today-weather-air">
+          <view class='weather'>{{weatherData.text || '--'}}</view>
+          <view class='line'></view>
+          <view class='air-now air-tag--{{weatherData.aqi/50+1}}'>
+            {{weatherData.aqi +weatherData.category}}
+          </view>
+        </view>
+        <button class="share-button" open-type="share" type="primary">提醒朋友</button>
+        <view class='details current-details'>
+          <view class='detail'>
+            <tooltip tips="体感温度（apparent temperature）是指将人体所感受到的冷暖程度，转换成同等之温度。体感温度会受到气温、风速与相对湿度的综合影响。" placement="bottom">
+              <view slot="content">
+                体感温度
+                <image class="icon-question" src='/image/icon/icon-question.png'></image>
+              </view>
+            </tooltip>
+            <view>{{weatherData.feelsLike}}℃</view>
+          </view>
+          <view class='detail'>
+            <view>降水量</view>
+            <view>{{weatherData.precip}}mm</view>
+          </view>
+          <view class='detail'>
+            <view>相对湿度</view>
+            <view>{{weatherData.humidity}}%</view>
+          </view>
+          <view class='detail'>
+            <view>{{weatherData.windDir}}</view>
+            <view>{{weatherData.windScale}}级</view>
+          </view>
+          <view class='detail'>
+            <view>能见度</view>
+            <view>{{weatherData.vis}}km</view>
+          </view>
+        </view>
+        <view class="rainfall-handle" bindtap='getRainfall'>
+          {{isRainfall? weatherData.rainfall:'查看未来两小时降雨预报>'}}
+        </view>
+        <view class="comfort-text">{{weatherData.comfText}}</view>
+      </view>
+    </view>
+    <!-- 24h预报 -->
+    <hourly24 wx:if='{{location}}' location="{{location}}" />
+    <!-- 7天预报 -->
+    <daily7 wx:if='{{location}}' location="{{location}}" />
+    <!-- footer info -->
+    <view class='footer'>
+      <span>公众号：攻城狮杰森</span>
+      <span>技术支持：jason.peng.code@gmail.com</span>
+      <span>Copyright © 2023 - now coder-jason, All Rights Reserved.</span>
+    </view>
+    <!-- 预警信息 -->
+    <view class='toast' wx:if='{{warningShow}}'>
+      <view class='mask' catchtap='hideWarningToast'></view>
+      <view class='wrapper'>
+        <view class='box' wx:for="{{weatherData.warning}}" wx:key="index">
+          <view class='t'>{{item.title}}</view>
+          <view class='content'>{{item.text}}</view>
+        </view>
+      </view>
+    </view>
+
+  </view>
+</view>

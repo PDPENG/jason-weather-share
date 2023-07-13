@@ -1,0 +1,16 @@
+<view class='daily' wx:if='{{daily7Datas.length}}'>
+  <view class='title'>7 日天气预报</view>
+  <view class="wrapper">
+    <view class='dailys'>
+      <view class='item' wx:for='{{daily7Datas}}' wx:key='index'>
+        <view class='date i'>{{item.fxDateFormat}}</view>
+        <view class='temperature i'>{{item.tempMax}}/{{item.tempMin}}℃</view>
+        <image wx:if="{{item.iconDay}}" class="day-7-item-icon" src="{{'../../../../image/weather-icon/'+item.iconDay+'.png'}}" />
+        <image wx:if="{{item.iconNight}}" class="day-7-item-icon" src="{{'../../../../image/weather-icon/'+item.iconNight+'.png'}}" />
+        <view class='weather i'>
+          {{item.textDay===item.textNight?item.textDay:item.textDay+'转'+item.textNight}}
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

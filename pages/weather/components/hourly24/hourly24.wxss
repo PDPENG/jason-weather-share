@@ -1,0 +1,112 @@
+.wrapper {
+  background-color: white;
+  flex: 2;
+  border-radius: 40rpx;
+  box-sizing: border-box;
+  /* 立体效果 */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  /* 控制内侧内容 */
+  padding: 0 20rpx;
+  margin: 0 22rpx;
+}
+
+
+.scroll-view {
+  border-radius: 20px;
+  /* 设置圆角 */
+  overflow: hidden;
+  /* 隐藏滚动条 */
+}
+
+
+.hourly .hourlys {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  font-size: 24rpx;
+  padding-top: 20rpx;
+  /* 内侧展示样式背景色 */
+  /* background: #F7F8F9; */
+  margin-bottom: 20rpx;
+  overflow-x: scroll;
+}
+
+.hourly .title {
+  margin-left: 40rpx;
+  margin-top: 30rpx;
+  position: relative;
+  /* 设置定位上下文 */
+}
+
+.hourly .title::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: -10px;
+  /* 竖线距离标题的距离 */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  /* 竖线宽度 */
+  height: 20px;
+  /* 竖线高度 */
+  background-color: #427BFF;
+  /* 竖线颜色 */
+}
+
+.hourly .hourlys .item {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 140rpx;
+  flex-shrink: 0;
+  /* margin: 12rpx; */
+}
+
+.hourly .hourlys .temperature,
+.hourly .hourlys .weather {
+  font-size: 28rpx;
+}
+
+.hourly .hourlys .date {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.hourly .hourlys .wind {
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 24rpx;
+}
+
+.hourly-24-item-icon {
+  width: 48rpx;
+  height: 48rpx;
+}
+
+.hourly-line-chart {
+
+  height: 200rpx;
+  display: block;
+}
+
+ec-canvas {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+}
+
+.start-rain {
+  text-align: center;
+  color: #f00;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  /* 添加阴影 */
+  margin-bottom: 12rpx;
+}
+
+.start-rain::before {
+  content: "⚠️";
+  /* 添加警告符号 */
+  margin-right: 5px;
+  /* 调整符号与文本之间的距离 */
+}

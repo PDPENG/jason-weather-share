@@ -1,0 +1,100 @@
+.wrapper {
+  background-color: white;
+  flex: 2;
+  border-radius: 40rpx;
+  box-sizing: border-box;
+  /* 立体效果 */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  /* 控制内侧内容 */
+  padding: 0 20rpx;
+  margin: 0 22rpx;
+  margin-top: 15rpx;
+}
+
+.daily .dailys {
+  display: flex;
+  flex-direction: row;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  font-size: 24rpx;
+  padding-top: 20rpx;
+  /* 内侧展示样式背景色 */
+  /* background: #F7F8F9; */
+  margin-bottom: 20rpx;
+  overflow-x: scroll;
+  margin: 0 40rpx;
+}
+
+.daily .dailys .item {
+  border-right: 1px dashed rgba(255, 255, 255, 0.22);
+  display: flex;
+  justify-content: flex-start;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.daily .dailys .temperature {
+  flex: 1;
+  margin: 20rpx;
+}
+
+.daily .dailys .temperature,
+.daily .dailys .weather {
+  font-size: 28rpx;
+  border-right: 8px dashed rgba(255, 255, 255, 0.22);
+  display: flex;
+  justify-content: flex-start;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.daily .dailys .date {
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 28rpx;
+  border-right: 2px dashed rgba(255, 255, 255, 0.22);
+  display: flex;
+  justify-content: flex-start;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.daily .dailys .wind {
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 24rpx;
+}
+
+.daily-line-chart-box {
+  width: 600rpx;
+  height: 400rpx;
+}
+
+.day-7-item-icon {
+  width: 48rpx;
+  height: 48rpx;
+}
+
+.daily .title {
+  margin-left: 40rpx;
+  margin-top: 20rpx;
+  position: relative;
+}
+
+.daily .title::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: -10px;
+  /* 竖线距离标题的距离 */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  /* 竖线宽度 */
+  height: 20px;
+  /* 竖线高度 */
+  background-color: #427BFF;
+  /* 竖线颜色 */
+}
