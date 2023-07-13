@@ -1,6 +1,7 @@
 # 快速访问
 
-![](/image/qrcode.jpg)
+<img src="/image/qrcode.jpg" alt="QR Code" width="200" height="200">
+
 
 # 和风天气key
 
@@ -40,6 +41,6 @@ export const geocoder = (lat, lon, success = () => { }, fail = () => { }) => {
 
 # 联系开发者
 
-![](/image/gzh.jpg)
+<img src="/image/gzh.jpg" alt="gzh" width="200" height="200">
 
 > 菜单栏【联系作者】或【进交流群】
