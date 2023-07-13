@@ -1,6 +1,6 @@
 # 快速访问
 
-<img src="/image/qrcode.jpg" alt="QR Code" width="200" height="200">
+<img src="/image/qrcode.jpg" alt="QR Code" width="200" height="240">
 
 
 # 和风天气key
